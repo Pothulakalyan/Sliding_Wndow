@@ -21,3 +21,25 @@ int main(){
     }
     cout<<max_sum;
 }
+===============================================================================================================================
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int a=7,k=3;
+    vector<int>ve={5,2,-1,6,-2,7,3};
+    //for calculating first window of size k;
+    int Currnt_Sum=0,Max_sum=0;
+    for(int i=0;i<k;i++){
+        Currnt_Sum+=ve[i];
+    }
+    //update the Currnt_Sum to Max_sum
+    Max_sum=Currnt_Sum;
+    // now we will move k to length array 
+    for(int i=k;i<a;i++){
+        Currnt_Sum=(Currnt_Sum-ve[i-k])+ve[i];
+        if(Currnt_Sum>Max_sum)
+            Max_sum=Currnt_Sum;
+    }
+    cout<<Max_sum;
+    
+}
