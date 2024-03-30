@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int a=5,k=3;
+    vector<int>ve={1,2,3,4,5};
+    int curr_sum=0,max_sum=0;
+    for(int i=0;i<k;i++){
+        curr_sum+=ve[i];
+    }
+    //update the curr_sum to max_sum
+    max_sum=curr_sum;
+    //now the loop traverse form 'k' to length of the array
+    for(int i=k;i<a;i++){
+        // subtract the curr_sum with removing the first window of the first element
+        curr_sum=(curr_sum-ve[i-k])+ve[i];
+        if(curr_sum>max_sum){
+            max_sum=curr_sum;
+        }
+    }
+    cout<<max_sum;
+}
